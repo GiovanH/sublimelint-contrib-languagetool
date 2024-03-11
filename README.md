@@ -1,30 +1,24 @@
-This is a template. For "how to make a linter", please check [the HOWTO](HOWTO.md).
+# SublimeLinter-contrib-languagetool
 
------------------------------------------------------------------
-
-SublimeLinter-contrib-__linter__
-================================
-
-[![Build Status](https://travis-ci.org/SublimeLinter/SublimeLinter-contrib-__linter__.svg?branch=master)](https://travis-ci.org/SublimeLinter/SublimeLinter-contrib-__linter__)
-
-This linter plugin for [SublimeLinter](https://github.com/SublimeLinter/SublimeLinter) provides an interface to [__linter__](__linter_homepage__). It will be used with files that have the “__syntax__” syntax.
+This linter plugin for [SublimeLinter](https://github.com/SublimeLinter/SublimeLinter) provides an interface to [languagetool](https://languagetool.org/dev). By default, it applies to text with the `meta.paragraph` selector, i.e. markdown text.
 
 ## Installation
+
 SublimeLinter must be installed in order to use this plugin. 
 
 Please use [Package Control](https://packagecontrol.io) to install the linter plugin.
 
-Before installing this plugin, you must ensure that `__linter__` is installed on your system.
-
-In order for `__linter__` to be executed by SublimeLinter, you must ensure that its path is available to SublimeLinter. The docs cover [troubleshooting PATH configuration](http://sublimelinter.readthedocs.io/en/latest/troubleshooting.html#finding-a-linter-executable).
+You must provide an API url for the languagetool server, or run your own instance. See <https://languagetool.org/dev> for details.
 
 ## Settings
-- SublimeLinter settings: http://sublimelinter.readthedocs.org/en/latest/settings.html
-- Linter settings: http://sublimelinter.readthedocs.org/en/latest/linter_settings.html
 
-Additional SublimeLinter-__linter__ settings:
+- SublimeLinter settings: <http://sublimelinter.readthedocs.org/en/latest/settings.html>
+- Linter settings: <http://sublimelinter.readthedocs.org/en/latest/linter_settings.html>
 
-|Setting|Description    |
-|:------|:--------------|
-|foo    |Something.     |
-|bar    |Something else.|
+Additional SublimeLinter-languagetool settings:
+
+|Setting    |Description    |
+|:----------|:--------------|
+|server_url |API url for the languagetool server, e.g. `"http://localhost:8081/v2/check"`|
+|debug      |Print extended debugging information    |
+|ignored_ids|`disabledRules`, passed to LanguageTool.|

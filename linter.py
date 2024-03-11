@@ -69,7 +69,7 @@ class LanguageTool(Linter):
     cmd = None
 
     def run(self, cmd, code):
-        server_url = "http://localhost:8081/v2/check"
+        server_url = self.settings.get('server_url', "http://localhost:8081/v2/check")
         language = "en-US"
         ignored_ids = self.settings.get("ignored_ids", [])  # [rule['id'] for rule in load_ignored_rules()]
         matches = getResponse(
