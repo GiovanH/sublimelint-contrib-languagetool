@@ -15,7 +15,7 @@ def getResponse(server, text, language, ignored_ids):
             'language': language,
             'text': text.encode('utf8'),
             'User-Agent': 'sublime',
-            'disabledRules': ','.join(ignored_ids)
+            'disabledRules': ','.join(ignored_ids or [])
         }
     except Exception:
         print(repr(ignored_ids))
@@ -95,7 +95,7 @@ class LanguageTool(Linter):
                 end_col=match['rel_offset'] + match['length'],
                 error_type="warning",
                 message=("%s %s" % (match['message'], match['replacements_fmt'])),
-                code=match['rule']['id']  #  + '|' + match['type']['typeName'],
+                code=match['rule']['id']  # + '|' + match['type']['typeName'],
                 # near=match['sentence'].strip().split('\n')[0]
             )
             for match in matches
