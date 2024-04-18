@@ -7,6 +7,7 @@ import traceback
 
 from urllib.parse import urlencode
 from urllib.request import urlopen
+from urllib.error import URLError
 
 def getResponse(server, text, language, ignored_ids):
     try:
@@ -32,11 +33,11 @@ def getResponse(server, text, language, ignored_ids):
 
 def _post(server, payload):
     data = urlencode(payload).encode('utf8')
-    # try:
-    content = urlopen(server, data).read()
-    return content
-    # except IOError:
-    #     return None
+    try:
+        content = urlopen(server, data).read()
+        return content
+    except URLError:
+        return None
 
 
 # def load_ignored_rules():
