@@ -79,6 +79,8 @@ class LanguageTool(Linter):
             language,
             ignored_ids
         )
+        if matches is None:
+            return ''  # LanguageTool server not reachable
         for m in matches:
             m['lines'] = [("%s\n" % line) for line in code.split('\n')]
             m['computed_line'] = code[:m['offset']].count('\n')
